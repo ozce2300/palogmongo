@@ -1,5 +1,19 @@
 const express = require("express");
 const router = express.Router();
+const mongoose = require("mongoose");
+require("dotenv").config();
+
+//Connect to MongoDB
+
+mongoose.set("strictQuery", false);
+mongoose.connect(process.env.DATABASE).then(() => {
+    console.log("Conntected")
+}).catch((error) => {
+    console.error("Error connecting to database...")
+});
+
+//User model
+const User = require("../models/User")
 
 
 
