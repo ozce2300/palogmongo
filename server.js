@@ -5,9 +5,12 @@ const authRoutes = require("./routes/authRoutes");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 const jwt = require("jsonwebtoken")
+const cors = require("cors");
 
 const port = process.env.PORT || 3400
 const app = express();
+app.use(cors());
+
 app.use(bodyParser.json());
 
 //Routes
