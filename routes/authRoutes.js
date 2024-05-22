@@ -29,12 +29,15 @@ router.post("/login", async (req,res) =>{
     try {
 
         const {username, password} = req.body;
-
-        if(!username || !password) {
-            return res.status(400).json({ error: "Write in username/password"})
+        //Correct user logged in
+        if(username === "Rojvan" & password=== "password") {
+            res.status(201).json({message: "User logged in.."})
         }
 
-        res.status(201).json({message: "User logged in.."})
+        else {
+            res.status(401).json({error: "wrong username/password"})
+        }
+        
 
 
     }
